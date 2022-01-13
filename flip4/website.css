@@ -1,0 +1,66 @@
+/*
+Museum Styles
+*/
+
+body {
+    font-family: 'Mali', cursive;
+    font-size: 20px;
+    background-color: cornflowerblue;
+    color: white;
+}
+h1 {
+    font-size: 40px;
+}
+select {
+    font-family: 'Charmonman', cursive;
+    background-color: orange;
+}
+table, th, td {
+    vertical-align: top;
+}
+img {
+    vertical-align: top;	
+}
+table {
+    border-collapse: collapse;
+    width: 500px;
+}
+th {
+    background-color: #54585d;
+    border: 1px solid #54585d;
+}
+th:hover {
+    background-color: #64686e;
+}
+th a {
+    display: block;
+    text-decoration:none;
+    padding: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 13px;
+}
+th a i {
+    margin-left: 5px;
+    color: rgba(255,255,255,0.4);
+}
+td {
+    padding: 10px;
+    color: #636363;
+    border: 1px solid #dddfe1;
+}
+tr {
+    background-color: #ffffff;
+}
+tr .highlight {
+    background-color: #f9fafb;
+}
+#but1,#but2,#but3,#but4{
+    display: inline-block;
+    margin-right:10px;
+}
+
+/* Solid border */
+hr.solid {
+  border-top: 3px solid #bbb;
+}
