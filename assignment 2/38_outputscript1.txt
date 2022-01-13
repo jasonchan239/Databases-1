@@ -1,0 +1,113 @@
+Warning: Using a password on the command line interface can be insecure.
+--------------
+SHOW DATABASES
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| 38_assign2b        |
+| 38_assign2db       |
+| flip3              |
+| mysql              |
+| performance_schema |
+| vetoffice          |
++--------------------+
+7 rows in set (0.00 sec)
+
+--------------
+DROP DATABASE IF EXISTS 38_assign2db
+--------------
+
+Query OK, 7 rows affected (0.30 sec)
+
+--------------
+CREATE DATABASE 38_assign2db
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+SHOW TABLES
+--------------
+
+Empty set (0.00 sec)
+
+--------------
+CREATE TABLE Bus(
+    LicensePlate CHAR(7) NOT NULL,
+    Capacity INT NOT NULL,
+    PRIMARY KEY (LicensePlate)
+)
+--------------
+
+Query OK, 0 rows affected (0.07 sec)
+
+--------------
+CREATE TABLE Passport(
+    PassportNum CHAR(4) NOT NULL,
+    CntryCitizen CHAR(30) NOT NULL,
+    ExpDate DATE NOT NULL,
+    Birthdate DATE NOT NULL,
+    PRIMARY KEY (PassportNum)
+)
+--------------
+
+Query OK, 0 rows affected (0.05 sec)
+
+--------------
+CREATE TABLE Passenger(
+    PassengerID INT NOT NULL,
+    FirstName CHAR(20) NOT NULL,
+    LastName CHAR(20) NOT NULL,
+    PRIMARY KEY (PassengerID),
+    PassportNum CHAR(4) NOT NULL,
+    FOREIGN KEY (PassportNum) REFERENCES Passport(PassportNum) ON DELETE CASCADE
+)
+--------------
+
+Query OK, 0 rows affected (0.07 sec)
+
+--------------
+CREATE TABLE BusTrip(
+    TripID INT UNIQUE NOT NULL,
+    TripName CHAR(50) NOT NULL,
+    StartDate DATE NOT NULL,
+    EndDate DATE NOT NULL,
+    CountryVisit CHAR(30) NOT NULL,
+    LicensePlate CHAR(7) NOT NULL,
+    PRIMARY KEY (TripID)
+)
+--------------
+
+Query OK, 0 rows affected (0.07 sec)
+
+--------------
+CREATE TABLE Bookings(
+    PassengerID INT NOT NULL,
+    Price INT NOT NULL,
+    TripID INT NOT NULL,
+    PRIMARY KEY (PassengerID),
+    FOREIGN KEY (PassengerID) REFERENCES Passenger(PassengerID) ON DELETE CASCADE
+)
+--------------
+
+Query OK, 0 rows affected (0.15 sec)
+
+--------------
+SHOW TABLES
+--------------
+
++------------------------+
+| Tables_in_38_assign2db |
++------------------------+
+| Bookings               |
+| Bus                    |
+| BusTrip                |
+| Passenger              |
+| Passport               |
++------------------------+
+5 rows in set (0.00 sec)
+
+Bye
